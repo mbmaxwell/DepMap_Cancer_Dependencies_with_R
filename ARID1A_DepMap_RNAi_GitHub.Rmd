@@ -4,7 +4,6 @@ author: "Matt Maxwell"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output: 
   html_document: 
-   css: style.css
    code folding: hide
    hard_wrap: TRUE
    theme: lumen
