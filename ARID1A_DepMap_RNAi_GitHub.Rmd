@@ -19,7 +19,7 @@ output:
 }
 
 .tocify-header .tocify-item {
-  font-size: 0.90em;
+  font-size: 1.05em;
   padding-left: 25px;
   text-indent: 0;
 }
@@ -177,8 +177,6 @@ for (i in 1:length(Gene)) {
 Here I plot the effect size and significance values for ~17,000 genes in the RNAi screens that this DepMap data was generated from. For the cutoffs that I defined here there are about 102 genes that are are genetic dependencies in ARID1A mutant cancers classified by their dropout in the RNAi screens differentially in ARID1A mutant cancer cell lines compared to non-mutant cancer cell lines. **As a positive control to make sure this analysis is giving reasonable results, I highlight that the paralog of ARID1A, ARID1B is the most significant dependency in ARID1A mutant cancer cell lines.**
 ```{r volcano_plot, fig.cap = "**Figure 1: Volcano Plot of ARID1A Mutant Cancer Genetic Dependencies**", fig.height=6, message=FALSE}
 #Read in data from the previous code chunk run on high performance computing cluster
-wd <- r"(C:\Users\mattm\OneDrive\Desktop\GitHub_projects\DepMap\vetting_code)"
-setwd(wd)
 dat <- read.delim("RNAi_ARID1A_Sensitivity_DepMap.txt")
 
 #Add a new column using dplyr package defining genes as 
@@ -226,9 +224,6 @@ volcano_deps
 ### **ARID1A Mutant Synthetic Lethality with ARID1B Knockdown**
 To give context to the result I highlighted above showing ARID1B is the gene whose knockdown is the most significant dependency in ARID1A mutant cancers, I'm including a graphic below to give some context into why ARID1A mutant cancers display an enhanced sensitization to knockdown of the ARID1A paralog, ARID1B compared to cancers in which ARID1A is not mutated. For more info on the ARID1 synthetic lethal relationship, see the following publications from the Hargreaves Lab, [Kelso et al](https://elifesciences.org/articles/30506) and the Roberts Lab, [Helming et al](https://www.nature.com/articles/nm.3480). 
 ```{r echo=FALSE, out.width = "100%", fig.align = "center"}
-wd <- r"(C:\Users\mattm\OneDrive\Desktop\GitHub_projects\DepMap)"
-setwd(wd)
-
 knitr::include_graphics("ARID1_Synthetic_Lethality_Graphic_v2.png")
 # C:\Users\mattm\OneDrive\Desktop\GitHub_projects\DepMap
 # ARID1A_B_Synthetic_Lethality_Graphic```
@@ -321,7 +316,7 @@ To test if R-Loop regulator genes are over-represented among the 102 ARID1A muta
 
 #Read in R-Loop genes list
 #This list is from R-Loop Base publication.
-r_loop_human_genes <- read.delim("human_R_loop_regulators.txt")
+r_loop_human_genes <- read.delim("human_R_loop_regulator_genes.txt")
 
 #Add a new column using dplyr mutate function to classify genes as R-Loop regulators or not using dplyr mutate function
 new_dat <- new_dat %>%
